@@ -41,7 +41,7 @@ def parse_strings_resources(filename):
 
 
 def load_string_resources():
-    regex = re.compile("-(.*)\/")
+    regex = re.compile(r"-(.*)\/")
     strings = dict()
 
     for fname in glob("ActivityLauncherApp/src/main/res/values-*/strings.xml"):
@@ -79,7 +79,7 @@ def update_listings(service, strings):
     edit_id = result["id"]
 
     # create edits
-    regex = re.compile("-(.*)\.")
+    regex = re.compile(r"-(.*)\.")
     for fname in glob("descriptions/description-*.txt"):
         code = next(regex.finditer(fname))[1].split("-")
         if len(code) > 2 or code[0] == "xxx":
